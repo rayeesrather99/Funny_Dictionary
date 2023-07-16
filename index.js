@@ -29,7 +29,8 @@ function fetchApi() {
                 resultText += `<li>${def.definition}</li>`;
             }
             if (resultText) {
-                result.innerHTML = `<ul>${resultText}</ul>`;
+              result.style.cssText = "font-size:1.1rem; text-align: left";
+              result.innerHTML = `<ul style="list-style-type: circle">${resultText}</ul>`;
             } else {
                 result.innerHTML = "No definitions found.";
             }
@@ -52,6 +53,7 @@ function fetchJoke() {
   jokeObj.onload = () => {
     if (jokeObj.status === 200) {
       const jokeResponse = JSON.parse(jokeObj.response);
+      jokeResult.style.cssText = "font-size: 14px";
       jokeResult.innerHTML = jokeResponse?.joke || "No joke found.";
     }
   };
